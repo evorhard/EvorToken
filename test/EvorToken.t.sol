@@ -10,12 +10,13 @@ contract EvorTokenTest is Test {
     address deployer;
     address userOne = address(0x1);
 
+    bool private constant BURNABLE = true;
     uint256 private constant INITIAL_SUPPLY = 1000e18;
     uint256 private constant TRANSFER_AMOUNT = 100e18;
 
     function setUp() public {
         deployer = address(this);
-        evorToken = new EvorToken(INITIAL_SUPPLY);
+        evorToken = new EvorToken(INITIAL_SUPPLY, BURNABLE);
     }
 
     function testInitialSupply() public view {
